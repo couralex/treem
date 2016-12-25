@@ -12,7 +12,9 @@
     "lint": "eslint src test",
     "cover": "babel-node $(npm bin)/isparta cover _mocha -- \"test/{unit,integration}/**/*.test.js\"",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "test": "mocha \"test/{unit,integration}/**/*.test.js\""
+    "test": "mocha \"test/{unit,integration}/**/*.test.js\"",
+    "test-e2e": "mocha \"test/e2e/**/*.test.js\"",
+    "docker-test-e2e": "docker-compose run --rm test"
   },
   "repository": {
     "type": "git",
@@ -62,6 +64,8 @@
     "isparta": "^4.0.0",
     "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.2.0",
+    "mysql2": "^1.1.2",
+    "pg": "^6.1.2",
     "rimraf": "^2.5.4"
   }
 }
