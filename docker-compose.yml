@@ -1,0 +1,23 @@
+version: '2'
+services:
+  test:
+    build: .
+    volumes:
+     - .:/home/project/
+     - node_modules:/home/project/node_modules
+    depends_on:
+     - mysql
+     - postgres
+  mysql:
+   image: mysql
+   environment:
+    - MYSQL_ROOT_PASSWORD=couralex
+    - MYSQL_USER=couralex
+    - MYSQL_PASSWORD=couralex
+  postgres:
+   image: postgres
+   environment:
+    - POSTGRES_PASSWORD=couralex
+    - POSTGRES_USER=couralex
+volumes:
+  node_modules:
