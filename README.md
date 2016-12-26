@@ -57,6 +57,7 @@ npm install treem
 
 ```js
 import Treem from 'treem';
+// ES5: var Treem = require('treem').default;
 
 const rows = [{
   name: 'Rogue one',
