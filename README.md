@@ -51,7 +51,9 @@ Result :
 
 ## Installation
 
+```
 npm install treem
+```
 
 ## Usage
 
