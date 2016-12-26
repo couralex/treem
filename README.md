@@ -134,7 +134,7 @@ const treem = new Treem({
 ```
 
 ### `symbols`
-*accepted values: <object> with collection, key, and separator properties*
+*accepted values: object with collection, key, and separator properties*
 
 Redefines the symbols used by treem to detect collection,  key, and children.
 Example:
@@ -145,7 +145,7 @@ new Treem({
     collection: '+',
     separator: '.'
   }
-}
+})
 ```
 
 ### `prune`
@@ -205,7 +205,7 @@ ReuseObject can have 3 values :
 Overwrites single objects if values are different on subsequent rows.
 
 ### `headers`
-*accepted values: <object>*
+*accepted values: object*
 
 Defines the columns headers and aliases. Useful if you can't change the columns' names.
 If this option is not defined, headers are taken from the first row of the flat data.
@@ -232,7 +232,7 @@ new Treem({
 
 
 ### `wrap`
-*accepted values: {single: <function>, collection: <function>}*
+*accepted values: {single: function, collection: function}*
 
 Wraps custom classes about single elements and collection elements.
 The function to be provided takes the current node as a parameter and returns an instance of the custom class.
@@ -243,7 +243,7 @@ The custom class for collection elements shall have a push function.
 
 
 ### `detect`
-*accepted values: {key: <function>, collection: <function>}*
+*accepted values: {key: function, collection: function}*
 
 Defines a custom way to detect keys and collections by providing a callback.
 The callback takes the current node as a parameter and returns an object with 2 properties :
