@@ -2,10 +2,6 @@ sudo: required
 language: node_js
 services:
   - docker
-env:
-  global:
-    - DOCKER_COMPOSE_VERSION=1.7.1
-    - DOCKER_VERSION=1.11.2-0~trusty
 cache:
   directories:
     - node_modules
@@ -13,12 +9,6 @@ notifications:
   email: false
 node_js:
   - "stable"
-before_install:
-  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
 before_script:
   - npm prune
 script:
