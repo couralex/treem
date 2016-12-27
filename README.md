@@ -89,11 +89,12 @@ Orthogonally, flat data can be :
 - non uniform : columns can be different : [Example](https://github.com/couralex/treem/wiki/Non-uniform-flat-data)
 
 The structure of the tree is determined by a convention on the columns' naming. The convention defines, by default, 3 symbols :
-- separator as `.` : defines children
+- separator as `.` : defines children  
   example : `book.author.name`
-- collection as `+` : defines an array instead of a single object. Note : pluralization can also be used to detect collection : [Example](https://github.com/couralex/treem/wiki/Pluralization-as-collection-detection)
+- collection as `+` : defines an array instead of a single object.  
+  Note : pluralization can also be used to detect collection : [Example](https://github.com/couralex/treem/wiki/Pluralization-as-collection-detection)  
   example : `+movies.+actors`
-- key as `#` : defines keys of the object. If no key is provided, all properties of the object are considered as a key. Defining a key improves performances and allows object reuse (see the reuseObject option).
+- key as `#` : defines keys of the object. If no key is provided, all properties of the object are considered as a key. Defining a key improves performances and allows object reuse (see the reuseObject option).  
   example : `actor.#id`
 
 The result produced by treem can be :
@@ -117,7 +118,7 @@ const treem = new Treem({
   headers: {
     id: 'id',
     name: 'name',
-    petName: 'pet:name'
+    petName: 'pet.name'
   },
   wrap: {
     single: node => new Model(),
@@ -148,7 +149,7 @@ new Treem({
     collection: '+',
     separator: '.'
   }
-})
+});
 ```
 
 ### `prune`
@@ -158,7 +159,7 @@ Removes null or undefined elements. prune can also accept a callback. Example :
 ```js
 new Treem({
   prune: element => element === undefined || element === null
-})
+});
 ```
 
 ### `root`
@@ -221,7 +222,7 @@ const movies = [{
   firstName: 'Felicity',
   lastName: 'Jones'
 ...
-}]
+}];
 ```
 
 new Treem({
