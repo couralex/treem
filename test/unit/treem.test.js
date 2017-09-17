@@ -89,6 +89,17 @@ describe('Treem', function() {
       treem.feed(rows2);
       expect(treem.data).to.deep.equal(expected2);
     });
+    it('should reset data when fill is called', function () {
+      const rows1 = [{a: 1, '+b.c': 2}];
+      const rows2 = [{a: 1, '+b.c': 4}];
+      const expected1 = [{a: 1, 'b': [{c: 2}]}];
+      const expected2 = [{a: 1, 'b': [{c: 4}]}];
+      const treem = new Treem();
+      treem.fill(rows1);
+      expect(treem.data).to.deep.equal(expected1);
+      treem.fill(rows2);
+      expect(treem.data).to.deep.equal(expected2);
+    });
   });
   describe('options: {prune: false}', function() {
     it('should keep null and undefined values', function () {

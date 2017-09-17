@@ -9,7 +9,6 @@ const DEFAULT_SEPARATOR_SYMBOL = '.';
 export default class Treem {
 
   constructor(options = {}) {
-    this._firstFeed = true;
     const symbols = {
       key: DEFAULT_KEY_SYMBOL,
       collection: DEFAULT_COLLECTION_SYMBOL,
@@ -89,15 +88,26 @@ export default class Treem {
         }
       }
     }
+    this.reset();
+  }
+
+  get data() {
+    return this._data;
+  }
+
+  reset() {
+    this._firstFeed = true;
     if (this._config.root === 'collection') {
       this._data = this._config.wrap.collection('');
     } else {
       this._data = this._config.wrap.single('');
     }
+    this._root = undefined;
   }
 
-  get data() {
-    return this._data;
+  fill(rows) {
+    this.reset();
+    this.feed(rows);
   }
 
   feed(rows) {
