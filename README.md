@@ -68,7 +68,7 @@ const rows = [{
 }];
 
 const treem = new Treem();
-treem.feed(rows);
+treem.fill(rows);
 treem.data === [{
   name: 'Rogue one',
   actors: [{
@@ -101,6 +101,9 @@ The result produced by treem can be :
 - an array (by default)
 - an object (by setting the option: {root: 'single'})
 
+There are 2 functions to provide data to a treem instance :
+- feed : adds data to a treem instance. Multiple calls to feed leads to a merge of all data
+- fill : supplies data to a treem instance. Subsequent calls to fill resets any previous data given to the treem instance
 
 ## Options
 
