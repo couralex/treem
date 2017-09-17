@@ -1,6 +1,6 @@
 {
   "name": "treem",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "High performance conversion of flat data (like SQL result rows) into nested objects.",
   "main": "./lib/treem.js",
   "scripts": {
