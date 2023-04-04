@@ -14,7 +14,7 @@ export default class Header {
     }
     this._nodes = [];
     for (let i = 0; i < this._elements.length - 1; i++) {
-      const collection = detect.collection(this._elements[i]);
+      const collection = detect.collection(this._elements[i], alias);
       const name = collection.check ? collection.name : this._elements[i];
       const isCollection = collection.check;
       this._nodes.push({name, isCollection});

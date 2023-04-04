@@ -309,6 +309,18 @@ describe('Treem', function() {
       expect(treem.data).to.deep.equal(expected);
     });
   });
+  describe('options: {detect: collection: <callback>}', function() {
+    it('should detect collection and transform them', function () {
+      const rows = [{a: 1, 'b.c': 2}, {a: 1, 'b.c': 3}];
+      const expected = [{a: 1, b: [{c: 2}, {c: 3}]}];
+      const treem = new Treem({detect: {collection: (node, path) => { return {
+        check: path === "b.c",
+        name: node
+      }}}});
+      treem.feed(rows);
+      expect(treem.data).to.deep.equal(expected);
+    });
+  });
   describe('options: {symbols: <object>}', function() {
     it('should use the provided symbols', function () {
       const rows = [{a: 1, '!b/*c': 2}, {a: 2, '!b/*c': 2}];
